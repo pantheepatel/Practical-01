@@ -1,45 +1,21 @@
 namespace Calculator
 {
-    internal class Calculate
+    // sealed class so that no other class can inherit, but we can make object of class
+    sealed class Calculate
     {
-        public static void CalculateMethod(double[] numbers)
+        public void CalculateMethod(double[] numbers)
         {
-            // can add more methods in future
-            string[] methods = { "Addition", "Substraction", "Multiplication", "Division" };
-            foreach (var method in methods)
-            {
-                var methodName = typeof(Calculate).GetMethod(method);
-                // checking if method exists in Calculate class or not
-                if (methodName != null)
-                {
-                    // storing returned value of each method
-                    double answer = (double)methodName.Invoke(null, new object[] { numbers });
-                    Console.WriteLine("\t\tThe {0} of {1} and {2} is: {3}", method, numbers[0], numbers[1], answer);
-                }
-                else
-                {
-                    Console.WriteLine("Method {0} not found!", method);
-                }
-            }
+            double additionAnswer = numbers[0] + numbers[1];
+            Console.WriteLine("The sum of {0} and {1} is {2}", numbers[0], numbers[1], additionAnswer);
+            double subtractionAnswer = numbers[0] - numbers[1];
+            Console.WriteLine("The subtraction of {0} and {1} is {2}", numbers[0], numbers[1], subtractionAnswer);
+            double multiplicationAnswer = numbers[0] * numbers[1];
+            Console.WriteLine("The multiplication of {0} and {1} is {2}", numbers[0], numbers[1], multiplicationAnswer);
+            double devisionAnswer = Division(numbers);
+            Console.WriteLine("The division of {0} and {1} is {2}", numbers[0], numbers[1], devisionAnswer);
         }
 
-        // for below methods storing it in different variable, so that we can perform something on that(error handling)
-        public static double Addition(double[] numbers)
-        {
-            double answer = numbers[0] + numbers[1];
-            return answer;
-        }
-        public static double Substraction(double[] numbers)
-        {
-            double answer = numbers[0] - numbers[1];
-            return answer;
-        }
-        public static double Multiplication(double[] numbers)
-        {
-            double answer = numbers[0] * numbers[1];
-            return answer;
-        }
-        public static double Division(double[] numbers)
+        private double Division(double[] numbers)
         {
             double answer = numbers[0] / numbers[1];
             if (double.IsInfinity(answer)) // handling error

@@ -1,6 +1,6 @@
 namespace debuggingApplication
 {
-    internal class DebuggingApplication
+    public class DebuggingApplication
     {
         public static void Main(string[] args)
         {
