@@ -2,7 +2,7 @@ namespace debuggingApplication
 {
     public class DebuggingApplication
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
             Console.Write("Enter here: ");
             string userResponse = Console.ReadLine();

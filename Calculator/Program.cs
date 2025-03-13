@@ -5,7 +5,7 @@ namespace calculator
 {
     public class Calculator
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
             // making array with size 2(as given in LMS)
             double[] userInput = new double[2];
@@ -16,7 +16,7 @@ namespace calculator
             userInput[1] = Convert.ToDouble(Console.ReadLine());
 
             // calling method to calculate this array
-            Calculate calculation = new Calculate();
+            Calculate calculation = new();
             calculation.CalculateMethod(userInput); // method to printout answer and calculations
         }
     }
